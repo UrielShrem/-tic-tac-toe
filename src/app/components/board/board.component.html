@@ -1,0 +1,13 @@
+<div *ngIf="borderSevice.GameOver && borderSevice.win">GameOver</div>
+<div *ngIf="borderSevice.win"></div>
+
+<ng-container *ngIf="borderSevice.win">
+    <h1 *ngIf="this.borderSevice.GameMoves%2==0">O WIN</h1>
+    <h1 *ngIf="this.borderSevice.GameMoves%2!=0">X WIN</h1>
+</ng-container>
+<div class="row">
+    <div *ngFor="let squar of borderSevice.swuares; let i = index">
+        <app-square [i]="i"></app-square>
+    </div>
+
+</div>
