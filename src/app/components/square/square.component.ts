@@ -13,28 +13,28 @@ export class SquareComponent implements OnInit {
   ngOnInit(): void {
   }
   playerClick(){
-    if (this.borderSevice.swuares[this.i]=='' && !this.borderSevice.win) {
+    if (this.borderSevice.swuares[this.i]==null && !this.borderSevice.win) {
       
       
       this.addMove()
-      if (this.borderSevice.GameMoves>4) {
-       this.borderSevice.win = this.borderSevice.checkMoveCol(this.i);
+      if (this.borderSevice.GameMoves>3) {
+       this.borderSevice.win = this.borderSevice.checkWin(this.i);
        console.log(this.borderSevice.win);
        
       }
       if (this.borderSevice.GameMoves==8) {
         this.borderSevice.GameOver=true;
       }
+      this.borderSevice.GameMoves++;
     } else {
       
     }
-     this.borderSevice.GameMoves++;
+     
   }
 
   addMove(){
     if ( this.borderSevice.GameMoves%2==0) {
       this.borderSevice.swuares[this.i]="X"
-
     }else{
       this.borderSevice.swuares[this.i]="O"
     }

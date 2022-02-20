@@ -1,4 +1,4 @@
-<div *ngIf="borderSevice.GameOver && borderSevice.win">GameOver</div>
+<div *ngIf="borderSevice.GameOver && !borderSevice.win">GameOver</div>
 <div *ngIf="borderSevice.win"></div>
 
 <ng-container *ngIf="borderSevice.win">
@@ -11,3 +11,6 @@
     </div>
 
 </div>
+
+<button *ngIf="borderSevice.GameOver || borderSevice.win" 
+    class="btn btn-warning mt-4" (click)="borderSevice.newPlay()">Play again</button>
