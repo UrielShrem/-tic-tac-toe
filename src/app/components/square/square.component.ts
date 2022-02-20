@@ -15,20 +15,15 @@ export class SquareComponent implements OnInit {
   playerClick(){
     if (this.borderSevice.swuares[this.i]==null && !this.borderSevice.win) {
       
-      
       this.addMove()
       if (this.borderSevice.GameMoves>3) {
-       this.borderSevice.win = this.borderSevice.checkWin(this.i);
-       console.log(this.borderSevice.win);
-       
+       this.borderSevice.win = this.borderSevice.checkWin(this.i);       
       }
       if (this.borderSevice.GameMoves==8) {
         this.borderSevice.GameOver=true;
       }
       this.borderSevice.GameMoves++;
-    } else {
-      
-    }
+    } 
      
   }
 

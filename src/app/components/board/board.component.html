@@ -1,9 +1,9 @@
-<div *ngIf="borderSevice.GameOver && !borderSevice.win">GameOver</div>
-<div *ngIf="borderSevice.win"></div>
+<div class="center" *ngIf="borderSevice.GameOver && !borderSevice.win">GameOver</div>
+<div class="center" *ngIf="borderSevice.win"></div>
 
 <ng-container *ngIf="borderSevice.win">
-    <h1 *ngIf="this.borderSevice.GameMoves%2==0">O WIN</h1>
-    <h1 *ngIf="this.borderSevice.GameMoves%2!=0">X WIN</h1>
+    <h1 class="center" *ngIf="this.borderSevice.GameMoves%2==0">O WIN</h1>
+    <h1 class="center" *ngIf="this.borderSevice.GameMoves%2!=0">X WIN</h1>
 </ng-container>
 <div class="row">
     <div *ngFor="let squar of borderSevice.swuares; let i = index">
@@ -13,4 +13,4 @@
 </div>
 
 <button *ngIf="borderSevice.GameOver || borderSevice.win" 
-    class="btn btn-warning mt-4" (click)="borderSevice.newPlay()">Play again</button>
+    class="btn btn-warning mt-4 center" (click)="borderSevice.newPlay()">Play again</button>
