@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardServicesService } from 'src/app/board-services.service';
+import { BoardServicesService } from 'src/app/services/board-services.service';
 
 @Component({
   selector: 'app-board',
@@ -8,8 +8,8 @@ import { BoardServicesService } from 'src/app/board-services.service';
 })
 export class BoardComponent implements OnInit {
 
-  constructor(public borderSevice:BoardServicesService ) { }
-
+  constructor(public borderService:BoardServicesService ) { }
+  
   ngOnInit(): void {
   }
 

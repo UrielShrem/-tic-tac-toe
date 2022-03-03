@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BoardServicesService } from 'src/app/board-services.service';
+import { BoardServicesService } from 'src/app/services/board-services.service';
 
 @Component({
   selector: 'app-square',
@@ -7,31 +7,34 @@ import { BoardServicesService } from 'src/app/board-services.service';
   styleUrls: ['./square.component.css']
 })
 export class SquareComponent implements OnInit {
-@Input() i:number;
-  constructor(public borderSevice:BoardServicesService) { }
+
+  @Input() chosenSquare:number;
+
+  constructor(public borderService:BoardServicesService) { }
 
   ngOnInit(): void {
   }
+
   playerClick(){
-    if (this.borderSevice.swuares[this.i]==null && !this.borderSevice.win) {
+    if (this.borderService.squares[this.chosenSquare]==null && !this.borderService.win) {
       
       this.addMove()
-      if (this.borderSevice.GameMoves>3) {
-       this.borderSevice.win = this.borderSevice.checkWin(this.i);       
+      if (this.borderService.GameMoves>3) {
+       this.borderService.win = this.borderService.checkWin(this.chosenSquare);       
       }
-      if (this.borderSevice.GameMoves==8) {
-        this.borderSevice.GameOver=true;
+      if (this.borderService.GameMoves==8) {
+        this.borderService.GameOver=true;
       }
-      this.borderSevice.GameMoves++;
+      this.borderService.GameMoves++;
     } 
      
   }
 
   addMove(){
-    if ( this.borderSevice.GameMoves%2==0) {
-      this.borderSevice.swuares[this.i]="X"
+    if ( this.borderService.GameMoves%2==0) {
+      this.borderService.squares[this.chosenSquare]="X"
     }else{
-      this.borderSevice.swuares[this.i]="O"
+      this.borderService.squares[this.chosenSquare]="O"
     }
   }
 }
